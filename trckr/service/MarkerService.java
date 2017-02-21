@@ -26,7 +26,6 @@ public class MarkerService
 		{
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection("jdbc:mysql://127.9.96.2:3306/trckr",username,password);
-			//Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/trckr","root","golf2004");
 			Statement stmt = conn.createStatement();
 			ResultSet myRs = stmt.executeQuery("select * from " + table);
 			while(myRs.next()){
@@ -44,7 +43,6 @@ public class MarkerService
 			return list;
 		} catch (Exception e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return list;
 		}
@@ -57,7 +55,6 @@ public class MarkerService
 		{	
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection("jdbc:mysql://127.9.96.2:3306/trckr",username,password);
-			//Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/trckr","root","golf2004");
 			Statement stmt = conn.createStatement();
 			ResultSet myRs = stmt.executeQuery("select * from " + table + " where pickup = 1");
 			
@@ -93,7 +90,6 @@ public class MarkerService
 		{
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection("jdbc:mysql://127.9.96.2:3306/trckr",username,password);
-			//Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/trckr","root","golf2004");
 			String query = "INSERT into " + table + " (address,id,size,contents,dropoff,pickup,latitude,longitude) VALUES (?,?,?,?,?,?,?,?)";
 			PreparedStatement stmt = conn.prepareStatement(query);
 			stmt.setString(1,marker.getAddress());
@@ -113,7 +109,6 @@ public class MarkerService
 		} 
 		catch (Exception e) 
 		{
-			// TODO Auto-generated catch block
 			StringWriter sw = new StringWriter();
 			PrintWriter pw = new PrintWriter(sw);
 			e.printStackTrace(pw);
@@ -131,7 +126,6 @@ public class MarkerService
 		{
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection("jdbc:mysql://127.9.96.2:3306/trckr",username,password);
-			//Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/trckr","root","golf2004");
 			query = 	"UPDATE " + table 
 							+ " SET address='" + marker.getAddress() 
 						 	+ "', size =" + marker.getSize() 
@@ -149,7 +143,6 @@ public class MarkerService
 		} 
 		catch (Exception e) 
 		{
-			// TODO Auto-generated catch block
 			StringWriter sw = new StringWriter();
 			PrintWriter pw = new PrintWriter(sw);
 			e.printStackTrace(pw);
@@ -166,7 +159,6 @@ public class MarkerService
 		{
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection("jdbc:mysql://127.9.96.2:3306/trckr",username,password);
-			//Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/trckr","root","golf2004");
 			String query = "DELETE from " + table + " where id=" + id;
 			PreparedStatement stmt = conn.prepareStatement(query);
 			stmt.execute();
@@ -175,7 +167,6 @@ public class MarkerService
 		} 
 		catch (Exception e) 
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -187,7 +178,6 @@ public class MarkerService
 		{
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection("jdbc:mysql://127.9.96.2:3306/trckr",username,password);
-			//Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/trckr","root","golf2004");
 			Statement stmt = conn.createStatement();
 			String query = "SELECT * FROM tokens WHERE token = '" + token + "'";
 			System.out.println(query);
